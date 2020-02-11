@@ -1,19 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Pregunta from './components/Pregunta'
 
-class App extends Component {
-  render() {
+function App() {
+
+      //Definir el state
+      const [ presupuesto, guardarPresupuesto ] = useState(0)
+      const [ restante, guardarRestante ] = useState(false)
+
     return (
      <div className='container'>
        <header>
        <h1>Gasto Semanal</h1>
         <div className='contenido-principal contenido'>
-         <Pregunta />
+         <Pregunta 
+          guardarPresupuesto={guardarPresupuesto}
+          guardarRestante={guardarRestante}
+          />
         </div>
        </header>
      </div>
     );
-  }
+  
 }
 
 export default App;
